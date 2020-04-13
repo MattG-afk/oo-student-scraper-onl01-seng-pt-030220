@@ -9,7 +9,7 @@ class Scraper
     html = Nokogiri::HTML(open(index_url))
     
     html.css(".student-card a").each do |student|
-      hash = {:name => student.css("h4.student-name").text, :location => student.css("p.student-location").text, :profile_url => student.c("a").ssattribute("href").value
+      hash = {:name => student.css("h4.student-name").text, :location => student.css("p.student-location").text, :profile_url => student.attribute("href")
       }
       students_hash << hash
     end
